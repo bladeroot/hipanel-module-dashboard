@@ -226,8 +226,7 @@ $user = Yii::$app->user;
             <?php $box::end() ?>
         </div>
     <?php endif ?>
-
-    <?php if (Yii::getAlias('@client', false) && $user->can('client.read')) : ?>
+    <?php if (Yii::getAlias('@client', false) && ($user->can('client.read') || $user->can('employee.read'))) : ?>
         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
             <?php $box = SmallBox::begin([
                 'boxTitle' => Yii::t('hipanel', 'Clients'),
